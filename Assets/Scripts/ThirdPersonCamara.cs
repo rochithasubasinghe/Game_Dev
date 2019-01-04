@@ -1,16 +1,22 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class ThirdPersonCamara : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
+    public Player LocalPlayer;
+	void Awake () {
+        GameManager.Instance.OnLocalPlayerJoin += HandleLocalPlayer;
 	}
-	
-	// Update is called once per frame
-	void Update () {
+
+    private void HandleLocalPlayer(Player player)
+    {
+        LocalPlayer = player;
+    }
+
+    // Update is called once per frame
+    void Update () {
 		
 	}
 }
