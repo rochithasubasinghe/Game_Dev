@@ -29,6 +29,7 @@ public class Player : MonoBehaviour {
     void Awake()
     {
         playerInput = GameManager.Instance.InputController;
+        GameManager.Instance.LocalPlayer = this;
 
     }
     // Use this for initialization

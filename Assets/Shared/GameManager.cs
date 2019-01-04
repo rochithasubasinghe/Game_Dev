@@ -42,7 +42,7 @@ public class GameManager {
         set{
             m_LocalPlayer = value;
             if (OnLocalPlayerJoin != null)
-                OnLocalPlayerJoin();
+                OnLocalPlayerJoin(m_LocalPlayer);
         }
     }
 
