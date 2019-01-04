@@ -5,6 +5,11 @@ using UnityEngine;
 
 public class ThirdPersonCamara : MonoBehaviour {
 
+    [SerializeField] Vector3 camaraOffset;
+    [SerializeField] float Damping;
+    Transform CamaraLookTarget;
+
+
     public Player LocalPlayer;
 	void Awake () {
         GameManager.Instance.OnLocalPlayerJoin += HandleLocalPlayer;
@@ -13,10 +18,15 @@ public class ThirdPersonCamara : MonoBehaviour {
     private void HandleLocalPlayer(Player player)
     {
         LocalPlayer = player;
+        CamaraLookTarget = LocalPlayer.transform.Find("camaraLookTarget");
+        if (CamaraLookTarget == null)
+            CamaraLookTarget = LocalPlayer.transform;
     }
-
-    // Update is called once per frame
+    
     void Update () {
-		
-	}
+        Vector3 targetPosisiton = CamaraLookTarget.transform.position + LocalPlayer.transform.forward * camaraOffset.z
+                                                  + LocalPlayer.transform.up * camaraOffset.y + LocalPlayer.transform.right * camaraOffset.x;
+        transform.position = Vector3.Lerp(transform.position, targetPosisiton, Damping * Time.deltaTime);
+
+    }
 }
