@@ -19,6 +19,7 @@ public class Shooter : MonoBehaviour {
     
     public virtual void Fire()
     {
+        print("Firing!");
         canFire = false;
 
         if (Time.time < nextFireAllowed)

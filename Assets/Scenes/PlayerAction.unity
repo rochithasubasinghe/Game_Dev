@@ -815,6 +815,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5d6915cbb387fb4a91a3ea97820c75f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  assaultRifle: {fileID: 155506658}
 --- !u!1 &1773000898
 GameObject:
   m_ObjectHideFlags: 0
