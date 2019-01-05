@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GameManager {
 
+    public event System.Action<Player> OnLocalPlayerJoin;
     private GameObject gameObject;
     private static GameManager m_Instance;
     public static GameManager Instance
@@ -30,5 +31,20 @@ public class GameManager {
             return m_InputController;
         }
     }
-   
+
+
+    private Player m_LocalPlayer;
+    public Player LocalPlayer{
+        get{
+            return m_LocalPlayer;
+        }
+
+        set{
+            m_LocalPlayer = value;
+            if (OnLocalPlayerJoin != null)
+                OnLocalPlayerJoin(m_LocalPlayer);
+        }
+    }
+
+
 }
