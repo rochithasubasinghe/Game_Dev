@@ -26,7 +26,11 @@ public class ThirdPersonCamara : MonoBehaviour {
     void Update () {
         Vector3 targetPosisiton = CamaraLookTarget.transform.position + LocalPlayer.transform.forward * camaraOffset.z
                                                   + LocalPlayer.transform.up * camaraOffset.y + LocalPlayer.transform.right * camaraOffset.x;
+
+        Quaternion targetRotation = Quaternion.LookRotation(CamaraLookTarget.position - targetPosisiton, Vector3.up);
+
         transform.position = Vector3.Lerp(transform.position, targetPosisiton, Damping * Time.deltaTime);
+        transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Damping * Time.deltaTime);
 
     }
 }
