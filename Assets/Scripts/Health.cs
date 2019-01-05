@@ -2,15 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Health : MonoBehaviour {
+public class Health : Destructable {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public override void Die()
+    {
+        base.Die();
+
+        print("we died");
+    }
+
+    public override void TakeDamage(float amount)
+    {
+        
+        base.TakeDamage(amount);
+        print("Remaining: " + HitPointsRemaining);
+    }
 }
