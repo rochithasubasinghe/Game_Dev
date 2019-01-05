@@ -13,4 +13,12 @@ public class AssaultRifle : Shooter {
             //we fire the gun
         }
     }
+
+    public void Update()
+    {
+        if (GameManager.Instance.InputController.Reload)
+        {
+            Reload();
+        }
+    }
 }

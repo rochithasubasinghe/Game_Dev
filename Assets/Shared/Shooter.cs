@@ -19,7 +19,13 @@ public class Shooter : MonoBehaviour {
         muzzel = transform.Find("Muzzle");
         reloader = GetComponent<WeaponReloader>();
     }
-    
+
+    public void Reload(){
+        if (reloader == null)
+            return;
+        reloader.Reload();
+    }
+
     public virtual void Fire()
     {
      
