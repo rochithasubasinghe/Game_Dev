@@ -4,13 +4,25 @@ using UnityEngine;
 
 public class Shooter : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    [SerializeField] float rateOfFire;
+    [HideInInspector]
+    public Transform muzzel;
+
+    float nextFireAllowed;
+    bool canFire;
+
+    void Awake()
+    {
+        muzzel = transform.Find("Muzzle");
+
+    }
+    
+    public virtual void Fire()
+    {
+        canFire = false;
+
+        if (Time.time < nextFireAllowed)
+            return;
+        canFire = true;
+    }
 }
