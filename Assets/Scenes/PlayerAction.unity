@@ -336,7 +336,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rateOfFire: 1
-  projectile: {fileID: 114691714559788724, guid: 27b6bf02586132c4eaa85aab3df96e77,
+  projectile: {fileID: 114992322565250156, guid: 27b6bf02586132c4eaa85aab3df96e77,
     type: 2}
   muzzel: {fileID: 0}
   canFire: 0
