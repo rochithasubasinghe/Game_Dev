@@ -16,6 +16,7 @@ public class GameManager {
                 m_Instance = new GameManager();
                 m_Instance.gameObject = new GameObject("_gameManager");
                 m_Instance.gameObject.AddComponent<InputController>();
+                m_Instance.gameObject.AddComponent<Timer>();
             }
             return m_Instance;
         }
@@ -29,6 +30,17 @@ public class GameManager {
             if (m_InputController == null)
                 m_InputController = gameObject.GetComponent<InputController>();
             return m_InputController;
+        }
+    }
+
+    private Timer m_Timer;
+    public Timer Timer
+    {
+        get
+        {
+            if (m_Timer == null)
+                m_Timer = gameObject.GetComponent<Timer>();
+            return m_Timer;
         }
     }
 
