@@ -834,8 +834,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   MouseControl:
-    Damping: {x: 5, y: 0}
-    Sensitivity: {x: 2, y: 0}
+    Damping: {x: 5, y: 2}
+    Sensitivity: {x: 2, y: 6}
 --- !u!4 &1474426459
 Transform:
   m_ObjectHideFlags: 0
