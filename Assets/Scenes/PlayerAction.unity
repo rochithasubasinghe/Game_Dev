@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -266,9 +266,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50883dd909f636147b2b89bede752a10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxAmmo: 120
-  reloadTime: 2
-  clipSize: 20
+  maxAmmo: 500
+  reloadTime: 1
+  clipSize: 200
   shotsFiredInClip: 0
 --- !u!1 &270738779
 GameObject:
