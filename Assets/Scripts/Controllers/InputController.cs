@@ -12,7 +12,7 @@ public class InputController : MonoBehaviour {
     // add to animation handle
     public bool IsSprinting;
     public bool IsWalking;
-    public bool IsCrouched;
+    public bool IsCrouched=false;
 
 	
 	// Update is called once per frame
@@ -25,7 +25,8 @@ public class InputController : MonoBehaviour {
         //handle animation 
         IsWalking = Input.GetKey(KeyCode.LeftAlt);
         IsSprinting = Input.GetKey(KeyCode.LeftShift);
-        IsCrouched = Input.GetKey(KeyCode.C);
+        if (Input.GetKey(KeyCode.C))
+            IsCrouched = !IsCrouched;
 
 	}
 }
