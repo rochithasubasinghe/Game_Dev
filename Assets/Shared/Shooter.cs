@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Shooter : MonoBehaviour {
+public class Shooter : MonoBehaviour
+{
 
     [SerializeField] float rateOfFire;
+    [SerializeField] Transform hand;
     [SerializeField] Projectile projectile;
     [HideInInspector]
-    public Transform muzzel;
+    Transform muzzel;
 
     private WeaponReloader reloader;
 
@@ -18,6 +20,9 @@ public class Shooter : MonoBehaviour {
     {
         muzzel = transform.Find("Muzzle");
         reloader = GetComponent<WeaponReloader>();
+
+        // set weapon transform 
+        transform.SetParent(hand);
     }
 
     public void Reload(){
