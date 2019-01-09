@@ -16,6 +16,7 @@ public class PlayerAnimation : MonoBehaviour {
 
         // Use for transition
         animator.SetBool("IsWalking", GameManager.Instance.InputController.IsWalking);
+        animator.SetBool("IsSprinting", GameManager.Instance.InputController.IsSprinting);
 
     }
 }

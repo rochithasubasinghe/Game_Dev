@@ -837,9 +837,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66880d717524dfd4ca156d1e20d4819b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runSpeed: 0
-  walkSpeed: 0
-  sprintSpeed: 0
+  runSpeed: 5
+  walkSpeed: 2
+  sprintSpeed: 8
   crouchSpeed: 0
   MouseControl:
     Damping: {x: 5, y: 2}

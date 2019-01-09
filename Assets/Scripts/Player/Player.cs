@@ -80,11 +80,12 @@ public class Player : MonoBehaviour {
     {
         float moveSpeed = runSpeed;
 
+        //change speed according use state 
         if(playerInput.IsWalking)
             moveSpeed = walkSpeed;
-        if(playerInput.IsSprinting){
+        if (playerInput.IsSprinting)
+            moveSpeed = sprintSpeed;
 
-        }
         Vector2 direction = new Vector2(playerInput.Vertical * moveSpeed, playerInput.Horizontal * moveSpeed);
         MoveController.Move(direction);
     }
