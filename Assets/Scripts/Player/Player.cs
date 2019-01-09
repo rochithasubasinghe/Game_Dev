@@ -63,10 +63,10 @@ public class Player : MonoBehaviour {
 	void Update ()
     {
         Move();
-        LookArround();
+        LookAround();
     }
 
-    private void LookArround()
+    private void LookAround()
     {
         mouseInput.x = Mathf.Lerp(mouseInput.x, playerInput.MouseInput.x, 1f / MouseControl.Damping.x);
         mouseInput.y = Mathf.Lerp(mouseInput.y, playerInput.MouseInput.y, 1f / MouseControl.Damping.y);
@@ -78,7 +78,14 @@ public class Player : MonoBehaviour {
 
     private void Move()
     {
-        Vector2 direction = new Vector2(playerInput.Vertical * runSpeed, playerInput.Horizontal * runSpeed);
+        float moveSpeed = runSpeed;
+
+        if(playerInput.IsWalking)
+            moveSpeed = walkSpeed;
+        if(playerInput.IsSprinting){
+
+        }
+        Vector2 direction = new Vector2(playerInput.Vertical * moveSpeed, playerInput.Horizontal * moveSpeed);
         MoveController.Move(direction);
     }
 }

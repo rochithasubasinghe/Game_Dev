@@ -13,5 +13,9 @@ public class PlayerAnimation : MonoBehaviour {
 	void Update () {
         animator.SetFloat("Vertical", GameManager.Instance.InputController.Vertical);
         animator.SetFloat("Horizontal", GameManager.Instance.InputController.Horizontal);
+
+        // Use for transition
+        animator.SetBool("IsWalking", GameManager.Instance.InputController.IsWalking);
+
     }
 }
