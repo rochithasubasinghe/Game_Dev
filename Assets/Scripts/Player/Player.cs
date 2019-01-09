@@ -9,6 +9,7 @@ public class Player : MonoBehaviour {
     {
         public Vector2 Damping;
         public Vector2 Sensitivity;
+        public bool MouseLocked;
     }
 
     [SerializeField] float speed;
@@ -43,6 +44,10 @@ public class Player : MonoBehaviour {
     {
         playerInput = GameManager.Instance.InputController;
         GameManager.Instance.LocalPlayer = this;
+        if(MouseControl.MouseLocked){
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+        }
 
     }
     // Use this for initialization
