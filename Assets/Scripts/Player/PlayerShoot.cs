@@ -4,7 +4,37 @@ using UnityEngine;
 
 public class PlayerShoot : MonoBehaviour {
 
-    [SerializeField] Shooter assaultRifle;
+    Shooter[] weapons;
+    Shooter activeWeapon;
+
+    int currentWeaponIndex;
+
+    public Shooter ActiveWeapon
+    {
+        get
+        {
+            return activeWeapon;
+        }
+    }
+
+    void Awake()
+    {
+        weapons = transform.Find("Weapons").GetComponentsInChildren<Shooter>();
+
+        if (weapons.Length > 0)
+            activeWeapon = weapons[0];
+    }
+
+    void SwitchWeapon(int direction)
+    {
+        currentWeaponIndex += direction;
+
+        if (currentWeaponIndex > weapons.Length - 1)
+            currentWeaponIndex = 0;
+        if (currentWeaponIndex < 0)
+            currentWeaponIndex = weapons.Length - 1;
+    }
+
 
     void Update()
     {
