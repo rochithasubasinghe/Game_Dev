@@ -16,7 +16,7 @@ public class Shooter : MonoBehaviour
     float nextFireAllowed;
     public bool canFire;
 
-    void OnEnable()
+    public void Equip()
     {
         transform.SetParent(hand);
     }
