@@ -14,7 +14,7 @@ public class Container : MonoBehaviour {
         public string Name;
         public int Maximum;
 
-        private int amountTaken;
+        public int amountTaken;
 
         public ContainerItem()
         {
