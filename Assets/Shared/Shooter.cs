@@ -16,13 +16,16 @@ public class Shooter : MonoBehaviour
     float nextFireAllowed;
     public bool canFire;
 
+    void OnEnable()
+    {
+        transform.SetParent(hand);
+    }
+
     void Awake()
     {
         muzzel = transform.Find("Muzzle");
         reloader = GetComponent<WeaponReloader>();
 
-        // set weapon transform 
-        transform.SetParent(hand);
     }
 
     public void Reload(){

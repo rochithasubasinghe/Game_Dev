@@ -11,6 +11,7 @@ public class PlayerShoot : MonoBehaviour {
 
     int currentWeaponIndex;
     bool canFire;
+    Transform weaponHolster;
 
     public Shooter ActiveWeapon
     {
@@ -23,7 +24,8 @@ public class PlayerShoot : MonoBehaviour {
     void Awake()
     {
         canFire = true;
-        weapons = transform.Find("Weapons").GetComponentsInChildren<Shooter>();
+        weaponHolster = transform.FindChild("Weapons");
+        weapons = weaponHolster.GetComponentsInChildren<Shooter>();
 
         if (weapons.Length > 0)
             Equip(0);
@@ -33,6 +35,7 @@ public class PlayerShoot : MonoBehaviour {
     {
         for(int i = 0; i < weapons.Length; i++)
         {
+            weapons[i].transform.SetParent(weaponHolster);
             weapons[i].gameObject.SetActive(false);
         }
     }
@@ -58,6 +61,7 @@ public class PlayerShoot : MonoBehaviour {
     {
         canFire = true;
         activeWeapon = weapons[index];
+        DeactivateWeapons();
         weapons[index].gameObject.SetActive(true);
     }
 
