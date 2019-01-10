@@ -31,7 +31,11 @@ public class WeaponReloader : MonoBehaviour {
 
     void Awake()
     {
-        containerItemId= inventory.Add(this.name, maxAmmo);
+        inventory.OnContainerReady += () =>
+        {
+            containerItemId = inventory.Add(this.name, maxAmmo);
+        };
+        
     }
 
     public void Reload()
