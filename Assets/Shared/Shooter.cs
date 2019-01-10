@@ -8,7 +8,7 @@ public class Shooter : MonoBehaviour
     [SerializeField] float rateOfFire;
     [SerializeField] Transform hand;
     [SerializeField] Projectile projectile;
-    [HideInInspector]
+   // [HideInInspector]
     Transform muzzel;
 
     private WeaponReloader reloader;
