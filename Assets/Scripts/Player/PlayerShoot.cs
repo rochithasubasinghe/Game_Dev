@@ -45,6 +45,11 @@ public class PlayerShoot : MonoBehaviour {
 
     void Update()
     {
+        if (GameManager.Instance.InputController.MouseWheelDown)
+            SwitchWeapon(1);
+        if (GameManager.Instance.InputController.MouseWheelUp)
+            SwitchWeapon(-1);
+
         if (GameManager.Instance.InputController.Fire1)
         {
             activeWeapon.Fire();
