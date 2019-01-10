@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class PlayerShoot : MonoBehaviour {
 
+    [SerializeField]float weaponSwitchTime;
+
     Shooter[] weapons;
     Shooter activeWeapon;
 
     int currentWeaponIndex;
+    bool canFire;
 
     public Shooter ActiveWeapon
     {
@@ -19,14 +22,24 @@ public class PlayerShoot : MonoBehaviour {
 
     void Awake()
     {
+        canFire = true;
         weapons = transform.Find("Weapons").GetComponentsInChildren<Shooter>();
 
         if (weapons.Length > 0)
             Equip(0);
     }
 
+    void DeactivateWeapons()
+    {
+        for(int i = 0; i < weapons.Length; i++)
+        {
+            weapons[i].gameObject.SetActive(false);
+        }
+    }
+
     void SwitchWeapon(int direction)
     {
+        canFire = false;
         currentWeaponIndex += direction;
 
         if (currentWeaponIndex > weapons.Length - 1)
@@ -34,12 +47,18 @@ public class PlayerShoot : MonoBehaviour {
         if (currentWeaponIndex < 0)
             currentWeaponIndex = weapons.Length - 1;
 
-        Equip(currentWeaponIndex);
+        GameManager.Instance.Timer.Add(() =>
+        {
+            Equip(currentWeaponIndex);
+        }, weaponSwitchTime);
+        
     }
 
     void Equip(int index)
     {
+        canFire = true;
         activeWeapon = weapons[index];
+        weapons[index].gameObject.SetActive(true);
     }
 
 
@@ -49,6 +68,9 @@ public class PlayerShoot : MonoBehaviour {
             SwitchWeapon(1);
         if (GameManager.Instance.InputController.MouseWheelUp)
             SwitchWeapon(-1);
+
+        if (!canFire)
+            return;
 
         if (GameManager.Instance.InputController.Fire1)
         {
