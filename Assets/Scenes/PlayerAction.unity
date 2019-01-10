@@ -1461,7 +1461,7 @@ GameObject:
   - component: {fileID: 983232981}
   - component: {fileID: 983232980}
   m_Layer: 0
-  m_Name: Footsteps
+  m_Name: Footsteps_run
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1586,8 +1586,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 364f17f591252db4fb7c7b4136fdefff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clips: []
-  delayBetweenClips: 0
+  clips:
+  - {fileID: 8300000, guid: f23bfc61533b81046b9693da499e4aed, type: 3}
+  delayBetweenClips: 0.25
 --- !u!1 &1149828342
 GameObject:
   m_ObjectHideFlags: 0
@@ -2184,6 +2185,8 @@ MonoBehaviour:
     Damping: {x: 5, y: 2}
     Sensitivity: {x: 2, y: 6}
     MouseLocked: 1
+  footSteps: {fileID: 983232981}
+  minimumMoveTreshold: 0.02
 --- !u!4 &1474426459
 Transform:
   m_ObjectHideFlags: 0

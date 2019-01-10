@@ -13,6 +13,7 @@ public class AudioController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         source = GetComponent<AudioSource>();
+        canPlay = true;
 	}
 	
 	// Update is called once per frame

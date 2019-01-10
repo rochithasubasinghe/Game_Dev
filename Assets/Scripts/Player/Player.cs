@@ -18,6 +18,10 @@ public class Player : MonoBehaviour {
     [SerializeField] float crouchSpeed;
 
     [SerializeField] MouseInput MouseControl;
+    [SerializeField] AudioController footSteps;
+    [SerializeField] float minimumMoveTreshold;
+
+    Vector3 previousPosition;
 
     private MoveController m_MoveController;
     public MoveController MoveController
@@ -86,7 +90,14 @@ public class Player : MonoBehaviour {
         if (playerInput.IsSprinting)
             moveSpeed = sprintSpeed;
 
+
+
         Vector2 direction = new Vector2(playerInput.Vertical * moveSpeed, playerInput.Horizontal * moveSpeed);
         MoveController.Move(direction);
+        if (Vector3.Distance(transform.position,previousPosition)>minimumMoveTreshold)
+            footSteps.play();
+
+
+        previousPosition = transform.position;
     }
 }
