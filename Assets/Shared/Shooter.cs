@@ -19,11 +19,13 @@ public class Shooter : MonoBehaviour
     public void Equip()
     {
         transform.SetParent(hand);
+        transform.localPosition = Vector3.zero;
+        transform.localRotation = Quaternion.identity;
     }
 
     void Awake()
     {
-        muzzel = transform.Find("Muzzle");
+        muzzel = transform.Find("Model/Muzzle");
         reloader = GetComponent<WeaponReloader>();
 
     }
