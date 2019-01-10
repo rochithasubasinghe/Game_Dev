@@ -13,6 +13,8 @@ public class InputController : MonoBehaviour {
     public bool IsSprinting;
     public bool IsWalking;
     public bool IsCrouched=false;
+    public bool MouseWheelUp;
+    public bool MouseWheelDown;
 
 	
 	// Update is called once per frame
@@ -22,11 +24,12 @@ public class InputController : MonoBehaviour {
         MouseInput = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
         Fire1 = Input.GetButton("Fire1");
         Reload = Input.GetKey(KeyCode.R);
-        //handle animation 
         IsWalking = Input.GetKey(KeyCode.LeftAlt);
         IsSprinting = Input.GetKey(KeyCode.LeftShift);
         if (Input.GetKey(KeyCode.C))
             IsCrouched = !IsCrouched;
+        MouseWheelUp = Input.GetAxis("Mouse ScrollWheel")>0;
+        MouseWheelDown = Input.GetAxis("Mouse ScrollWheel")<0;
 
 	}
 }
