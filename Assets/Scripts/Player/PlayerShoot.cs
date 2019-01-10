@@ -22,7 +22,7 @@ public class PlayerShoot : MonoBehaviour {
         weapons = transform.Find("Weapons").GetComponentsInChildren<Shooter>();
 
         if (weapons.Length > 0)
-            activeWeapon = weapons[0];
+            Equip(0);
     }
 
     void SwitchWeapon(int direction)
@@ -33,6 +33,13 @@ public class PlayerShoot : MonoBehaviour {
             currentWeaponIndex = 0;
         if (currentWeaponIndex < 0)
             currentWeaponIndex = weapons.Length - 1;
+
+        Equip(currentWeaponIndex);
+    }
+
+    void Equip(int index)
+    {
+        activeWeapon = weapons[index];
     }
 
 
@@ -40,7 +47,7 @@ public class PlayerShoot : MonoBehaviour {
     {
         if (GameManager.Instance.InputController.Fire1)
         {
-            assaultRifle.Fire();
+            activeWeapon.Fire();
         }
     }
 }
