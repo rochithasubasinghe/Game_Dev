@@ -13,6 +13,7 @@ public class WeaponReloader : MonoBehaviour {
     bool isReloading;
     System.Guid containerItemId;
 
+    public event System.Action OnAmmoChanged;
     public int RoundsRemainingInClip
     {
         get
@@ -53,11 +54,14 @@ public class WeaponReloader : MonoBehaviour {
         
         isReloading = false;
         shotsFiredInClip -= amount; ;
-
+        if (OnAmmoChanged != null)
+            OnAmmoChanged();
     }
 
     public void TakeFromClip(int amount)
     {
         shotsFiredInClip += amount;
+        if (OnAmmoChanged != null)
+            OnAmmoChanged();
     }
 }
