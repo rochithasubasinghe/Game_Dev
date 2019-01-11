@@ -66,9 +66,23 @@ public class Container : MonoBehaviour {
 
     public int TakeFromContainer(System.Guid id, int amount)
     {
-        var containerItem = items.Where(x => x.Id == id).FirstOrDefault();
+        var containerItem = GetContainerItem(id);
         if (containerItem == null)
             return -1;
         return containerItem.Get(amount);
+    }
+
+    public int GetAmountRemaining(System.Guid id)
+    {
+        var containerItem = GetContainerItem(id);
+        if (containerItem == null)
+            return -1;
+        return containerItem.Remaining;
+    }
+
+    private ContainerItem GetContainerItem(System.Guid id)
+    {
+        var containerItem = items.Where(x => x.Id == id).FirstOrDefault();
+        return containerItem;
     }
 }

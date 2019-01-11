@@ -7,6 +7,7 @@ public class AmmoCounter : MonoBehaviour {
 
     [SerializeField] Text text;
     PlayerShoot playerShoot;
+    WeaponReloader vreloader;
 	// Use this for initialization
 	void Awake () {
         GameManager.Instance.OnLocalPlayerJoin += HandleOnLocalPlayerJoin;
@@ -15,12 +16,21 @@ public class AmmoCounter : MonoBehaviour {
     void HandleOnLocalPlayerJoin(Player player)
     {
         playerShoot = player.GetComponent<PlayerShoot>();
-        playerShoot.ActiveWeapon.reloader.OnAmmoChanged += HandleOnAmmoCahnged;
+        playerShoot.OnWeaponSwitch += HandleOnWeaponSwitch;
+        //HandleOnAmmoChanged();
     }
 
-    void HandleOnAmmoCahnged()
+    void HandleOnWeaponSwitch(Shooter activeWeapon)
     {
-        text.text = playerShoot.ActiveWeapon.reloader.RoundsRemainingInClip.ToString();
+        vreloader = activeWeapon.reloader;
+        vreloader.OnAmmoChanged += HandleOnAmmoChanged;
+        HandleOnAmmoChanged();
+    }
+    void HandleOnAmmoChanged()
+    {
+        int amountInInventory = vreloader.RoundsRemainingInInventory;
+        int amountInClip = vreloader.RoundsRemainingInClip;
+        text.text = string.Format("{0}/{1}", amountInClip, amountInInventory);
     }
     // Update is called once per frame
     void Update () {

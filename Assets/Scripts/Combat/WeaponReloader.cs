@@ -22,6 +22,14 @@ public class WeaponReloader : MonoBehaviour {
         }
     }
 
+    public int RoundsRemainingInInventory
+    {
+        get
+        {
+            return inventory.GetAmountRemaining(containerItemId);
+        }
+    }
+
     public bool IsReloading
     {
         get
