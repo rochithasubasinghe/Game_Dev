@@ -2,15 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AmmoPickup : MonoBehaviour {
+public class AmmoPickup : PickupItem {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    // Use this for initialization
+    public override void OnPickup(Transform item)
+    {
+   
+        print("Whatever");
+    }
 }
