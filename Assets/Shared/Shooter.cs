@@ -8,21 +8,26 @@ public class Shooter : MonoBehaviour
     [SerializeField] float rateOfFire;
     [SerializeField] Transform hand;
     [SerializeField] Projectile projectile;
-    [HideInInspector]
+   // [HideInInspector]
     Transform muzzel;
 
-    private WeaponReloader reloader;
+    public WeaponReloader reloader;
 
     float nextFireAllowed;
     public bool canFire;
 
+    public void Equip()
+    {
+        transform.SetParent(hand);
+        transform.localPosition = Vector3.zero;
+        transform.localRotation = Quaternion.identity;
+    }
+
     void Awake()
     {
-        muzzel = transform.Find("Muzzle");
+        muzzel = transform.Find("Model/Muzzle");
         reloader = GetComponent<WeaponReloader>();
 
-        // set weapon transform 
-        transform.SetParent(hand);
     }
 
     public void Reload(){
