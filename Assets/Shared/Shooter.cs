@@ -11,7 +11,7 @@ public class Shooter : MonoBehaviour
    // [HideInInspector]
     Transform muzzel;
 
-    private WeaponReloader reloader;
+    public WeaponReloader reloader;
 
     float nextFireAllowed;
     public bool canFire;
