@@ -1491,17 +1491,17 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.873
-  m_Pitch: -0.02
+  m_Volume: 0.861
+  m_Pitch: 0.64
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 103
+  Priority: 183
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
-  Pan2D: 0
+  Pan2D: 0.31
   rolloffMode: 0
   BypassEffects: 0
   BypassListenerEffects: 0
@@ -1565,7 +1565,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0.794
+      value: 0.927
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -1587,9 +1587,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clips:
-  - {fileID: 8300000, guid: f23bfc61533b81046b9693da499e4aed, type: 3}
-  - {fileID: 8300000, guid: b044b51e91a3682428fd8ccf2d08ddc8, type: 3}
-  delayBetweenClips: 0.25
+  - {fileID: 8300000, guid: 42e65e088b3f4374e851b8dbd38f3df9, type: 3}
+  - {fileID: 8300000, guid: 8bc94ec6ed537e743b481638bdcd503d, type: 3}
+  - {fileID: 8300000, guid: 5a9383dda6cabc047b7a297602e93eb4, type: 3}
+  - {fileID: 8300000, guid: e9714160ce34f2b4ab63ff8c27bd68e1, type: 3}
+  delayBetweenClips: 0.35
 --- !u!1 &1149828342
 GameObject:
   m_ObjectHideFlags: 0
@@ -2187,7 +2189,7 @@ MonoBehaviour:
     Sensitivity: {x: 2, y: 6}
     MouseLocked: 1
   footSteps: {fileID: 983232981}
-  minimumMoveTreshold: 0.02
+  minimumMoveTreshold: 0.04
 --- !u!4 &1474426459
 Transform:
   m_ObjectHideFlags: 0
