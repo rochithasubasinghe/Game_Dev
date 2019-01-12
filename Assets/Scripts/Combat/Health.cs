@@ -22,6 +22,6 @@ public class Health : Destructable {
     {
         
         base.TakeDamage(amount);
-        print("Remaining: " + HitPointsRemaining);
+        
     }
 }
