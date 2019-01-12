@@ -8,8 +8,7 @@ public class PickupItem : MonoBehaviour {
     {
 
         if (collider.tag != "Player")
-            print(collider.tag);
-         //   return;
+            return;
 
         PickUp(collider.transform);
        
